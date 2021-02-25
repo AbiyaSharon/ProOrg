@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProducerOrganisation` (
   `Country` VARCHAR(45) NOT NULL DEFAULT 'India',
   `IsActive` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`Id`),
-  UNIQUE INDEX `uq_ProducerOrganisation_Name_idx` (`Name` ASC) VISIBLE)
+  UNIQUE INDEX `uq_ProducerOrganisation_Name_idx` (`Name` ASC) )
 ENGINE = InnoDB;
 
 
@@ -54,9 +54,9 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`Producer` (
   `Email` VARCHAR(45) NULL,
   `IsActive` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`Id`),
-  UNIQUE INDEX `uq_Producer_ProducerOrganisationMembershipNumber_idx` (`ProducerOrganization_Id` ASC, `MembershipNumber` ASC) VISIBLE,
-  UNIQUE INDEX `uq_Producer_ProducerOrganisationPrimaryMobileNumber_idx` (`PrimaryMobileNumber` ASC, `ProducerOrganization_Id` ASC) VISIBLE,
-  UNIQUE INDEX `uq_Producer_ProducerOrganisationEmail_idx` (`ProducerOrganization_Id` ASC, `Email` ASC) VISIBLE,
+  UNIQUE INDEX `uq_Producer_ProducerOrganisationMembershipNumber_idx` (`ProducerOrganization_Id` ASC, `MembershipNumber` ASC) ,
+  UNIQUE INDEX `uq_Producer_ProducerOrganisationPrimaryMobileNumber_idx` (`PrimaryMobileNumber` ASC, `ProducerOrganization_Id` ASC) ,
+  UNIQUE INDEX `uq_Producer_ProducerOrganisationEmail_idx` (`ProducerOrganization_Id` ASC, `Email` ASC) ,
   CONSTRAINT `fk_Producer_ProducerOrganisation`
     FOREIGN KEY (`ProducerOrganization_Id`)
     REFERENCES `ProOrg`.`ProducerOrganisation` (`Id`)
@@ -77,8 +77,8 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`Product` (
   `CGSTPercentPerUnit` INT NULL,
   `SGSTPercentPerUnit` INT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_Product_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) VISIBLE,
-  UNIQUE INDEX `uq_Product_ProducerOrganisationCode_idx` (`ProducerOrganisation_Id` ASC, `Code` ASC) VISIBLE,
+  INDEX `fk_Product_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) ,
+  UNIQUE INDEX `uq_Product_ProducerOrganisationCode_idx` (`ProducerOrganisation_Id` ASC, `Code` ASC) ,
   CONSTRAINT `fk_Product_ProducerOrganisation1`
     FOREIGN KEY (`ProducerOrganisation_Id`)
     REFERENCES `ProOrg`.`ProducerOrganisation` (`Id`)
@@ -95,9 +95,9 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProducerProduct` (
   `Producer_Id` INT NOT NULL,
   `Product_Id` INT NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_ProducerProduct_Producer1_idx` (`Producer_Id` ASC) VISIBLE,
-  INDEX `fk_ProducerProduct_Product11_idx` (`Product_Id` ASC) VISIBLE,
-  UNIQUE INDEX `uq_ProducerProduct_ProducerProduct_idx` (`Producer_Id` ASC, `Product_Id` ASC) VISIBLE,
+  INDEX `fk_ProducerProduct_Producer1_idx` (`Producer_Id` ASC) ,
+  INDEX `fk_ProducerProduct_Product11_idx` (`Product_Id` ASC) ,
+  UNIQUE INDEX `uq_ProducerProduct_ProducerProduct_idx` (`Producer_Id` ASC, `Product_Id` ASC) ,
   CONSTRAINT `fk_ProducerProduct_Producer1`
     FOREIGN KEY (`Producer_Id`)
     REFERENCES `ProOrg`.`Producer` (`Id`)
@@ -125,9 +125,9 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProducerProductUpload` (
   `CustomerPricePerUnit` DOUBLE NOT NULL,
   `IsActive` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`Id`),
-  INDEX `fk_ProducerProductUpload_ProducerProduct1_idx` (`ProducerProduct_Id` ASC) VISIBLE,
-  INDEX `fk_ProducerProductUpload_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) VISIBLE,
-  UNIQUE INDEX `uq_ProducerProductUpload_ProducerOrganisationBatchNo_idx` (`ProducerOrganisation_Id` ASC, `BatchNo` ASC) VISIBLE,
+  INDEX `fk_ProducerProductUpload_ProducerProduct1_idx` (`ProducerProduct_Id` ASC) ,
+  INDEX `fk_ProducerProductUpload_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) ,
+  UNIQUE INDEX `uq_ProducerProductUpload_ProducerOrganisationBatchNo_idx` (`ProducerOrganisation_Id` ASC, `BatchNo` ASC) ,
   CONSTRAINT `fk_ProducerProductUpload_ProducerProduct1`
     FOREIGN KEY (`ProducerProduct_Id`)
     REFERENCES `ProOrg`.`ProducerProduct` (`Id`)
@@ -156,10 +156,10 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProducerProductSale` (
   `SGST` DOUBLE NOT NULL,
   `GrandTotal` DOUBLE NOT NULL,
   `IsActive` TINYINT(1) NOT NULL DEFAULT 1,
-  INDEX `fk_ProducerProductSale_ProducerProductUpload1_idx` (`ProducerProductUpload_Id` ASC) VISIBLE,
+  INDEX `fk_ProducerProductSale_ProducerProductUpload1_idx` (`ProducerProductUpload_Id` ASC) ,
   PRIMARY KEY (`Id`),
-  INDEX `fk_ProducerProductSale_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) INVISIBLE,
-  UNIQUE INDEX `uq_ProducerProductSale_ProducerOrganisationBillNo_idx` (`ProducerOrganisation_Id` ASC, `BillNumber` ASC) VISIBLE,
+  INDEX `fk_ProducerProductSale_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) ,
+  UNIQUE INDEX `uq_ProducerProductSale_ProducerOrganisationBillNo_idx` (`ProducerOrganisation_Id` ASC, `BillNumber` ASC) ,
   CONSTRAINT `fk_ProducerProductSale_ProducerProductUpload1`
     FOREIGN KEY (`ProducerProductUpload_Id`)
     REFERENCES `ProOrg`.`ProducerProductUpload` (`Id`)
@@ -187,15 +187,12 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`User` (
   `PrimaryMobile` VARCHAR(10) NOT NULL,
   `SecondaryMobile` VARCHAR(10) NULL,
   `Email` VARCHAR(100) NOT NULL,
-  `LoginName` VARCHAR(100) NOT NULL,
-  `LoginPassword` VARCHAR(45) NOT NULL,
-  `UserRole` VARCHAR(45) NOT NULL,
   `IsActive` TINYINT(1) NOT NULL DEFAULT 1,
   PRIMARY KEY (`Id`),
-  INDEX `fk_User_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) VISIBLE,
-  UNIQUE INDEX `uq_User_ProducerOrganisationLoginName_idx` (`ProducerOrganisation_Id` ASC, `LoginName` ASC) INVISIBLE,
-  UNIQUE INDEX `uq_User_ProducerOrganisationPrimaryMobile_idx` (`ProducerOrganisation_Id` ASC, `PrimaryMobile` ASC) INVISIBLE,
-  UNIQUE INDEX `uq_User_ProducerOrganisationEmail_idx` (`ProducerOrganisation_Id` ASC, `Email` ASC) VISIBLE,
+  INDEX `fk_User_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) ,
+  UNIQUE INDEX `uq_User_ProducerOrganisationLoginName_idx` (`ProducerOrganisation_Id` ASC, `LoginName` ASC) ,
+  UNIQUE INDEX `uq_User_ProducerOrganisationPrimaryMobile_idx` (`ProducerOrganisation_Id` ASC, `PrimaryMobile` ASC) ,
+  UNIQUE INDEX `uq_User_ProducerOrganisationEmail_idx` (`ProducerOrganisation_Id` ASC, `Email` ASC) ,
   CONSTRAINT `fk_User_ProducerOrganisation1`
     FOREIGN KEY (`ProducerOrganisation_Id`)
     REFERENCES `ProOrg`.`ProducerOrganisation` (`Id`)
@@ -215,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`LoginSession` (
   `SessionStatus` VARCHAR(45) NOT NULL,
   `LogoutTime` VARCHAR(45) NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_LoginSession_User1_idx` (`User_Id` ASC) VISIBLE,
+  INDEX `fk_LoginSession_User1_idx` (`User_Id` ASC) ,
   CONSTRAINT `fk_LoginSession_User1`
     FOREIGN KEY (`User_Id`)
     REFERENCES `ProOrg`.`User` (`Id`)
@@ -232,8 +229,8 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProductSection` (
   `ProducerOrganisation_Id` INT NOT NULL,
   `Name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_ProductSection_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) VISIBLE,
-  UNIQUE INDEX `uq_ProductSection_ProducerOrganisationName_idx` (`ProducerOrganisation_Id` ASC, `Name` ASC) VISIBLE,
+  INDEX `fk_ProductSection_ProducerOrganisation1_idx` (`ProducerOrganisation_Id` ASC) ,
+  UNIQUE INDEX `uq_ProductSection_ProducerOrganisationName_idx` (`ProducerOrganisation_Id` ASC, `Name` ASC) ,
   CONSTRAINT `fk_ProductSection_ProducerOrganisation1`
     FOREIGN KEY (`ProducerOrganisation_Id`)
     REFERENCES `ProOrg`.`ProducerOrganisation` (`Id`)
@@ -251,8 +248,8 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProductCategory` (
   `Category` VARCHAR(45) NOT NULL,
   `SubCategory` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_ProductCategory_ProductSection1_idx` (`ProductSection_Id` ASC) VISIBLE,
-  UNIQUE INDEX `uq_ProductCategory_ProductSectionCategorySubCategory_idx` (`ProductSection_Id` ASC, `Category` ASC, `SubCategory` ASC) VISIBLE,
+  INDEX `fk_ProductCategory_ProductSection1_idx` (`ProductSection_Id` ASC) ,
+  UNIQUE INDEX `uq_ProductCategory_ProductSectionCategorySubCategory_idx` (`ProductSection_Id` ASC, `Category` ASC, `SubCategory` ASC) ,
   CONSTRAINT `fk_ProductCategory_ProductSection1`
     FOREIGN KEY (`ProductSection_Id`)
     REFERENCES `ProOrg`.`ProductSection` (`Id`)
@@ -269,8 +266,8 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProductProductCategory` (
   `Product_Id` INT NOT NULL,
   `ProductCategory_Id` INT NOT NULL,
   PRIMARY KEY (`Id`),
-  INDEX `fk_ProductProductCategory_Product1_idx` (`Product_Id` ASC) VISIBLE,
-  INDEX `fk_ProductProductCategory_ProductCategory1_idx` (`ProductCategory_Id` ASC) VISIBLE,
+  INDEX `fk_ProductProductCategory_Product1_idx` (`Product_Id` ASC) ,
+  INDEX `fk_ProductProductCategory_ProductCategory1_idx` (`ProductCategory_Id` ASC) ,
   CONSTRAINT `fk_ProductProductCategory_Product1`
     FOREIGN KEY (`Product_Id`)
     REFERENCES `ProOrg`.`Product` (`Id`)
