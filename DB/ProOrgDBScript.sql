@@ -27,9 +27,12 @@ CREATE TABLE IF NOT EXISTS `ProOrg`.`ProducerOrganisation` (
   `Pincode` VARCHAR(6) NOT NULL,
   `State` VARCHAR(45) NOT NULL DEFAULT 'TamilNadu',
   `Country` VARCHAR(45) NOT NULL DEFAULT 'India',
+  `PrimaryMobileNumber` VARCHAR(45) NULL,
+  `SecondaryMobileNumber` VARCHAR(45) NULL,
+  `Email` VARCHAR(45) NULL,
   `IsActive` TINYINT(1) NULL DEFAULT 1,
   PRIMARY KEY (`Id`),
-  UNIQUE INDEX `uq_ProducerOrganisation_Name_idx` (`Name` ASC) )
+  UNIQUE INDEX `uq_ProducerOrganisation_Name_idx` (`Name` ASC))
 ENGINE = InnoDB;
 
 

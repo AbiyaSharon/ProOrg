@@ -10,22 +10,22 @@ import {
 const navButtons = [
   {
     label: "System Admin",
-    path: "/sysadmin/sysadminlogin",
-    icon: <FontAwesomeIcon icon={faCompass} />
+    path: "/sysadmin/sysadminhome",
+    icon: <FontAwesomeIcon icon={faUser} />
   },
   {
     label: "Producer Org Admin",
-    path: "/nearme",
-    icon: <FontAwesomeIcon icon={faMapMarkerAlt} />
+    path: "/prodorgadmin/prodorgadminhome",
+    icon: <FontAwesomeIcon icon={faUser} />
   },
   {
     label: "Producer",
-    path: "/mycart",
-    icon: <FontAwesomeIcon icon={faShoppingCart} />
+    path: "/producer/producerhome",
+    icon: <FontAwesomeIcon icon={faUser} />
   },
   {
     label: "Customer",
-    path: "/profile",
+    path: "/customer/customerhome",
     icon: <FontAwesomeIcon icon={faUser} />
   }
 ];
