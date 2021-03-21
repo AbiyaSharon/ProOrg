@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import UserSearchForm from "./usersearchform";
-import CreateUserForm from "./createuserform";
-import UserList from "./userlist";
+import ProdOrgAdminSearchForm from "./prodorgadminsearchform";
+import CreateProdOrgAdminForm from "./createprodorgadminform";
+import ProdOrgAdminList from "./prodorgadminlist";
 
-const ManageUser = (props) => {
+const ManageProdOrgAdmin = (props) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
 
   const onCreate = () => {
@@ -120,10 +120,10 @@ const ManageUser = (props) => {
 
   return (
     <div>
-      <h1 className="text-center">Manage User Details</h1>
+      <h1 className="text-center">Manage Producer Organization Admin  Details</h1>
       <div className="container border shadow rounded py-3 mt-5">
         {showCreateForm ? (
-          <CreateUserForm onCloseCreateUserForm={onCloseCreateForm} />
+          <CreateProdOrgAdminForm onCloseCreateProdOrgAdminForm={onCloseCreateForm} />
         ) : (
           <div className="row">
             <div className="text-center">
@@ -132,18 +132,18 @@ const ManageUser = (props) => {
                 className="btn btn-primary"
                 onClick={onCreate}
               >
-                Add New User
+                Add New ProdOrgAdmin
               </button>
             </div>
           </div>
         )}
       </div>
       <div className="container border shadow rounded py-3 mt-5">
-        <UserSearchForm />
-        <UserList data={userList} />
+        <ProdOrgAdminSearchForm />
+        <ProdOrgAdminList data={userList} />
       </div>
     </div>
   );
 };
 
-export default ManageUser;
+export default ManageProdOrgAdmin;

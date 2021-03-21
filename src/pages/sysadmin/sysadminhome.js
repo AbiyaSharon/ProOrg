@@ -3,10 +3,11 @@ import { Form, Row, Col } from "react-bootstrap";
 import Layout from "../../components/Layout";
 import Login from "../../components/Login";
 import ManageProducerOrg from "./producerorg/manageproducerorg";
-import ManageUser from "./user/manageuser";
+import ManageProdOrgAdmin from "./prodorgadmin/manageprodorgadmin";
 
 const SysAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const [activeItem, setActiveItem] = useState("Producer Organizations");
 
   const onLogin = (userName, password) => {
     // call server api to authenticate by sending userName, password
@@ -14,12 +15,33 @@ const SysAdminHome = () => {
     setLoggedIn(true);
   };
 
+  const onClickProducerOrganizations = () => {
+    setActiveItem("Producer Organizations");
+  };
+
+  const onClickProdOrgAdmins = () => {
+    setActiveItem("Producer Organization Admins");
+  };
+
+  const sidebar = [
+    {
+      label: "Producer Organizations",
+      handler: onClickProducerOrganizations,
+    },
+    {
+      label: "Producer Organization Admins",
+      handler: onClickProdOrgAdmins,
+    },
+  ];
+
   return (
-    <Layout>
+    <Layout sidebar={loggedIn ? sidebar : null} activeItem={activeItem}>
       {loggedIn ? (
         <>
-          <ManageProducerOrg></ManageProducerOrg>
-          <ManageUser></ManageUser>
+          {activeItem === "Producer Organizations" ? (
+            <ManageProducerOrg />
+          ) : null}
+          {activeItem === "Producer Organization Admins" ? <ManageProdOrgAdmin /> : null}
         </>
       ) : (
         <div className="container">

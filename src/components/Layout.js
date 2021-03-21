@@ -18,7 +18,25 @@ const Layout = (props) => {
       </Head>
 
       <Header appTitle={appTitle} />
-      <div className="Content">{props.children}</div>
+      <div className="d-flex">
+        {props.sidebar?.length ? (
+          <div className="border shadow rounded">
+            <div className="list-group list-group-flush">
+              {props.sidebar.map((opt) => (
+                <a
+                  key={opt.label}
+                  href="#"
+                  className={opt.label === props.activeItem ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}
+                  onClick={() => { opt.handler()}}
+                >
+                  {opt.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : null}
+        <div className="Content">{props.children}</div>
+      </div>
       <NavBar navButtons={navButtons} />
       <style jsx global>{`
         * {
@@ -54,6 +72,10 @@ const Layout = (props) => {
           display: flex;
           flex-direction: column;
           font-family: Arial;
+        }
+
+        .list-group-item {
+          background-color: inherit;
         }
       `}</style>
     </div>

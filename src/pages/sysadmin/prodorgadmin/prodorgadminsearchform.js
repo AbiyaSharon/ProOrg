@@ -1,4 +1,4 @@
-const UserSearchForm = () => (
+const ProdOrgAdminSearchForm = () => (
     <div className="text-center">
       <form className="row g-3 pb-3">
         <div className="col-sm-5">
@@ -6,13 +6,13 @@ const UserSearchForm = () => (
             <div className="col-sm-3 text-end">
               <label
                 className="col-form-label"
-                htmlFor="formSearchUserSearchBy"
+                htmlFor="formSearchProdOrgAdminSearchBy"
               >
                 Search By
               </label>
             </div>
             <div className="col-sm-9">
-              <select id="formSearchUserSearchBy" className="form-control">
+              <select id="formSearchProdOrgAdminSearchBy" className="form-control">
                 <option>Name</option>
                  <option>Mobile No</option>
                  <option>Email</option>
@@ -40,5 +40,5 @@ const UserSearchForm = () => (
     </div>
   );
   
-  export default UserSearchForm;
+  export default ProdOrgAdminSearchForm;
   
