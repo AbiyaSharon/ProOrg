@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Layout from "../../components/Layout";
 import Login from "../../components/Login";
-import ProducerSearchForm from "./producer/producersearchform";
-import CreateProducerForm from "./producer/createproducerform";
-import ProducerList from "./producer/producerlist";
+import ManageProducerOrg from "./producerorg/manageproducerorg";
+import ManageProdOrgAdmin from "./prodorgadmin/manageprodorgadmin";
 
 const ProdOrgAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [activeItem, setActiveItem] = useState("Producer Organizations");
 
   const onLogin = (userName, password) => {
     // call server api to authenticate by sending userName, password
@@ -16,239 +15,34 @@ const ProdOrgAdminHome = () => {
     setLoggedIn(true);
   };
 
-  const onCreate = () => {
-    console.log("onCreate called");
-    setShowCreateForm(true);
+  const onClickProducerOrganizations = () => {
+    setActiveItem("Producer Organizations");
   };
 
-  const onCloseCreateForm = () => {
-    console.log("onCloseCreateForm called");
-    setShowCreateForm(false);
+  const onClickProdOrgAdmins = () => {
+    setActiveItem("Producer Organization Admins");
   };
 
-  const prodList = React.useMemo(
-    () => [
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-      {
-        Name: "Hello",
-        RegistrationNumber: "RegNum",
-        AddressLine1: "Address1",
-        AddressLine2: "Address2",
-        City: "City",
-        Pincode: "121221121",
-        State: "Tamil Nadu",
-      },
-    ],
-    []
-  );
+  const sidebar = [
+    {
+      label: "Producer Organizations",
+      handler: onClickProducerOrganizations,
+    },
+    {
+      label: "Producer Organization Admins",
+      handler: onClickProdOrgAdmins,
+    },
+  ];
+
   return (
-    <Layout>
-      <h1 className="text-center">Manage Producer Details</h1>
+    <Layout sidebar={loggedIn ? sidebar : null} activeItem={activeItem}>
       {loggedIn ? (
-        <div>
-            <div className="container border shadow rounded py-3 mt-5">
-              {showCreateForm ? (
-                <CreateProducerForm
-                  onCloseCreateProducerForm={onCloseCreateForm}
-                />
-              ) : (
-                <div className="row">
-                  <div className="text-center">
-                    <button
-                      type="button"
-                      className="btn btn-primary"
-                      onClick={onCreate}
-                    >
-                      Add New Producer 
-                    </button>
-                  </div>
-                </div>
-              )}
-          </div>
-          <div className="container border shadow rounded py-3 mt-5">
-              <ProducerSearchForm />
-              <ProducerList data={prodList} />
-          </div>
-        </div>
+        <>
+          {activeItem === "Producer Organizations" ? (
+            <ManageProducerOrg />
+          ) : null}
+          {activeItem === "Producer Organization Admins" ? <ManageProdOrgAdmin /> : null}
+        </>
       ) : (
         <div className="container">
           <div className="row">
