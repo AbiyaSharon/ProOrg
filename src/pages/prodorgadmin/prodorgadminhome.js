@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Layout from "../../components/Layout";
 import Login from "../../components/Login";
-import ManageProducerOrg from "./producerorg/manageproducerorg";
-import ManageProdOrgAdmin from "./prodorgadmin/manageprodorgadmin";
+import ManageProducerDetails from "./producerorg/manageproducerorg";
+import ManageUserDetails from "./prodorgadmin/manageprodorgadmin";
 
 const ProdOrgAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
