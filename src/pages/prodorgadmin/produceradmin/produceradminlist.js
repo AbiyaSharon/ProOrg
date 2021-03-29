@@ -2,18 +2,38 @@ import React from "react";
 import BTable from "react-bootstrap/Table";
 import { useTable } from "react-table";
 
-const ProductList = (props) => {
+const ProducerAdminList = (props) => {
   const columns = React.useMemo(
     () => [
       {
-        Header: "Name",
-        accessor: "Name", // accessor is the "key" in the data
+        Header: "Producer",
+        accessor: "Producer", // accessor is the "key" in the data
       },
       {
-        Header: "Code",
-        accessor: "Code",
+        Header: "Login",
+        accessor: "LoginName", // accessor is the "key" in the data
       },
-     ],
+      {
+        Header: "First Name",
+        accessor: "FirstName",
+      },
+      {
+        Header: "Last Name",
+        accessor: "LastName",
+      },
+      {
+        Header: "Primary Mobile",
+        accessor: "PrimaryMobile",
+      },
+      {
+        Header: "Secondary Mobile",
+        accessor: "SecondaryMobile",
+      },
+      {
+        Header: "E-Mail",
+        accessor: "Email",
+      },
+    ],
     []
   );
 
@@ -29,7 +49,14 @@ const ProductList = (props) => {
   // Render the UI for your table
   return (
     <div className="shadow rounded">
-      <BTable striped bordered hover size="sm" className="m-0" {...getTableProps()}>
+      <BTable
+        striped
+        bordered
+        hover
+        size="sm"
+        className="m-0"
+        {...getTableProps()}
+      >
         <thead>
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
@@ -58,4 +85,4 @@ const ProductList = (props) => {
   );
 };
 
-export default ProductList;
+export default ProducerAdminList;

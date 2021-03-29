@@ -6,6 +6,14 @@ const ProdOrgAdminList = (props) => {
   const columns = React.useMemo(
     () => [
       {
+        Header: "Producer Organization",
+        accessor: "ProdOrg",
+      },
+      {
+        Header: "Login Name",
+        accessor: "LoginName",
+      },
+      {
         Header: "First Name",
         accessor: "FirstName", // accessor is the "key" in the data
       },
@@ -24,10 +32,6 @@ const ProdOrgAdminList = (props) => {
       {
         Header: "Email",
         accessor: "Email",
-      },
-      {
-        Header: "Login Name",
-        accessor: "LoginName",
       },
     ],
     []

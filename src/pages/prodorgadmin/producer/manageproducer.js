@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ProducerOrgSearchForm from "./producerorgsearchform";
-import CreateProducerOrgForm from "./createproducerorgform";
-import ProducerOrgList from "./producerorglist";
+import ProducerSearchForm from "./producersearchform";
+import CreateProducerForm from "./createproducerform";
+import ProducerList from "./producerlist";
 
-const ManageProducerOrg = (props) => {
+const manageproducer = (props) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
 
   const onCreate = () => {
@@ -16,10 +16,28 @@ const ManageProducerOrg = (props) => {
     setShowCreateForm(false);
   };
 
-  const orgList = React.useMemo(
+  const producerList = React.useMemo(
     () => [
       {
-        Name: "Holy cross",
+        Name: "Producer A",
+        RegistrationNumber: "201829",
+        AddressLine1: "52, New colony",
+        AddressLine2: "Near  subbaiah vidyalayam school",
+        City: "Thoothukudi",
+        Pincode: "628002",
+        State: "Tamil Nadu",
+      },
+      {
+        Name: "Producer K",
+        RegistrationNumber: "201829",
+        AddressLine1: "52, New colony",
+        AddressLine2: "Near  subbaiah vidyalayam school",
+        City: "Thoothukudi",
+        Pincode: "628002",
+        State: "Tamil Nadu",
+      },
+      {
+        Name: "Producer H",
         RegistrationNumber: "201829",
         AddressLine1: "52, New colony",
         AddressLine2: "Near  subbaiah vidyalayam school",
@@ -33,11 +51,11 @@ const ManageProducerOrg = (props) => {
 
   return (
     <div>
-      <h1 className="text-center">Manage Producer Organization Details</h1>
+      <h1 className="text-center">Manage Producer Details</h1>
       <div className="container border shadow rounded py-3 mt-5">
         {showCreateForm ? (
-          <CreateProducerOrgForm
-            onCloseCreateProducerOrgForm={onCloseCreateForm}
+          <CreateProducerForm
+            onCloseCreateProducerForm={onCloseCreateForm}
           />
         ) : (
           <div className="row">
@@ -47,18 +65,18 @@ const ManageProducerOrg = (props) => {
                 className="btn btn-primary"
                 onClick={onCreate}
               >
-                Add New Producer Organization
+                Add New Producer
               </button>
             </div>
           </div>
         )}
       </div>
       <div className="container border shadow rounded py-3 mt-5">
-        <ProducerOrgSearchForm />
-        <ProducerOrgList data={orgList} />
+        <ProducerSearchForm />
+        <ProducerList data={producerList} />
       </div>
     </div>
   );
 };
 
-export default ManageProducerOrg;
+export default manageproducer;

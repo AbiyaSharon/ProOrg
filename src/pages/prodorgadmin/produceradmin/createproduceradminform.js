@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CreateUserForm = (props) => {
+const CreateProducerAdminForm = (props) => {
   const onSubmit = () => {
     console.log("onSubmit called");
   };
@@ -8,12 +8,12 @@ const CreateUserForm = (props) => {
   return (
     <div className="position-relative py-3">
       <div className="text-center">
-        <h3>Add New User</h3>
+        <h3>Add New Producer Admin</h3>
       </div>
       <div className="position-absolute top-0 end-0">
         <button
           className="btn btn-primary py-0 px-2"
-          onClick={() => props.onCloseCreateUserForm()}
+          onClick={() => props.onCloseCreateProducerAdminForm()}
           title="Close"
         >
           X
@@ -22,111 +22,111 @@ const CreateUserForm = (props) => {
       <form className="px-5 pt-3 mx-0">
         <div className="row g-2 mb-3">
           <div className="form-group col-sm-6">
-            <label htmlFor="formCreateUserMembershipDate">
+            <label htmlFor="formCreateProducerAdminMembershipDate">
               Membership From Date
             </label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserMembershipDate"
+              id="formCreateProducerAdminMembershipDate"
               placeholder="2021-03-05"
             />
           </div>
           <div className="form-group col-sm-6">
-            <label htmlFor="formCreateUserRegNum">
+            <label htmlFor="formCreateProducerAdminRegNum">
               Registration Number
             </label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserRegNum"
+              id="formCreateProducerAdminRegNum"
               placeholder="TIN898979875765765"
             />
           </div>
         </div>
         <div className="row g-2 mb-3">
           <div className="form-group col-sm-6 mb-3">
-            <label htmlFor="formCreateUserName">Name</label>
+            <label htmlFor="formCreateProducerAdminName">Name</label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserName"
+              id="formCreateProducerAdminName"
               placeholder="Name"
             />
           </div>
           <div className="form-group col-sm-6 mb-3">
-            <label htmlFor="formCreateUserEmail">Email</label>
+            <label htmlFor="formCreateProducerAdminEmail">Email</label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserEmail"
+              id="formCreateProducerAdminEmail"
               placeholder="email"
             />
           </div>
         </div>
         <div className="row g-2 mb-3">
           <div className="form-group col-sm-6 mb-3">
-            <label htmlFor="formCreateUserPrimaryMobNum">
+            <label htmlFor="formCreateProducerAdminPrimaryMobNum">
               Primary Mobile Number
             </label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserPrimaryMobNum"
+              id="formCreateProducerAdminPrimaryMobNum"
               placeholder="primary mobile no"
             />
           </div>
           <div className="form-group col-sm-6 mb-3">
-            <label htmlFor="formCreateUserSecondMobNum">
+            <label htmlFor="formCreateProducerAdminSecondMobNum">
               Secondary Mobile Number
             </label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserSecondMobNum"
+              id="formCreateProducerAdminSecondMobNum"
               placeholder="secondary mobile no"
             />
           </div>
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="formCreateUserAddress1">Address 1</label>
+          <label htmlFor="formCreateProducerAdminAddress1">Address 1</label>
           <input
             type="text"
             className="form-control"
-            id="formCreateUserAddress1"
+            id="formCreateProducerAdminAddress1"
             placeholder="1234 Main St"
           />
         </div>
         <div className="form-group mb-3">
-          <label htmlFor="formCreateUserAddress2">Address 2</label>
+          <label htmlFor="formCreateProducerAdminAddress2">Address 2</label>
           <input
             type="text"
             className="form-control"
-            id="formCreateUserAddress2"
+            id="formCreateProducerAdminAddress2"
             placeholder="Apartment, studio, or floor"
           />
         </div>
         <div className="row g-3 mb-3">
           <div className="form-group col-sm-6">
-            <label htmlFor="formCreateUserCity">City</label>
+            <label htmlFor="formCreateProducerAdminCity">City</label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserCity"
+              id="formCreateProducerAdminCity"
             />
           </div>
           <div className="form-group col-md-4">
-            <label htmlFor="formCreateUserState">State</label>
-            <select id="formCreateUserState" className="form-control">
+            <label htmlFor="formCreateProducerAdminState">State</label>
+            <select id="formCreateProducerAdminState" className="form-control">
               <option defaultValue="Tamil Nadu">Tamil Nadu</option>
             </select>
           </div>
           <div className="form-group col-md-2">
-            <label htmlFor="formCreateUserPincode">Pincode</label>
+            <label htmlFor="formCreateProducerAdminPincode">Pincode</label>
             <input
               type="text"
               className="form-control"
-              id="formCreateUserPincode"
+              id="formCreateProducerAdminPincode"
             />
           </div>
         </div>
@@ -140,4 +140,4 @@ const CreateUserForm = (props) => {
   );
 };
 
-export default CreateUserForm;
+export default CreateProducerAdminForm;

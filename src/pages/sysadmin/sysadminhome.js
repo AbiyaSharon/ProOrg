@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Form, Row, Col } from "react-bn  ootstrap";
+import { Form, Row, Col } from "react-bootstrap";
 import Layout from "../../components/Layout";
 import Login from "../../components/Login";
 import ManageProducerOrg from "./producerorg/manageproducerorg";
 import ManageProdOrgAdmin from "./prodorgadmin/manageprodorgadmin";
+import ManageProduct from  "./product/manageProduct";
 
 const SysAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);

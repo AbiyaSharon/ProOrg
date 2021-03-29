@@ -2,7 +2,7 @@ import React from "react";
 import BTable from "react-bootstrap/Table";
 import { useTable } from "react-table";
 
-const UserList = (props) => {
+const ProductOrgList = (props) => {
   const columns = React.useMemo(
     () => [
       {
@@ -78,4 +78,4 @@ const UserList = (props) => {
   );
 };
 
-export default UserList;
+export default ProductOrgList;

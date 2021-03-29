@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ProducerOrgSearchForm from "./producerorgsearchform";
-import CreateProducerOrgForm from "./createproducerorgform";
-import ProducerOrgList from "./producerorglist";
+import ProductSearchForm from "./productsearchform";
+import CreateProductForm from "./createProductform";
+import ProductList from "./productlist";
 
-const ManageProducerOrg = (props) => {
+const ManageProduct = (props) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
 
   const onCreate = () => {
@@ -36,8 +36,8 @@ const ManageProducerOrg = (props) => {
       <h1 className="text-center">Manage Producer Organization Details</h1>
       <div className="container border shadow rounded py-3 mt-5">
         {showCreateForm ? (
-          <CreateProducerOrgForm
-            onCloseCreateProducerOrgForm={onCloseCreateForm}
+          <CreateProductForm
+            onCloseCreateProductForm={onCloseCreateForm}
           />
         ) : (
           <div className="row">
@@ -54,11 +54,11 @@ const ManageProducerOrg = (props) => {
         )}
       </div>
       <div className="container border shadow rounded py-3 mt-5">
-        <ProducerOrgSearchForm />
-        <ProducerOrgList data={orgList} />
+        <ProductSearchForm />
+        <ProductList data={orgList} />
       </div>
     </div>
   );
 };
 
-export default ManageProducerOrg;
+export default ManageProduct;

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ProducerOrgSearchForm from "./producerorgsearchform";
-import CreateProducerOrgForm from "./createproducerorgform";
-import ProducerOrgList from "./producerorglist";
+import ProductSearchForm from "./Productsearchform";
+import CreateProductForm from "./createProductform";
+import ProductList from "./Productlist";
 
-const ManageProducerOrg = (props) => {
+const ManageProduct = (props) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
 
   const onCreate = () => {
@@ -16,28 +16,24 @@ const ManageProducerOrg = (props) => {
     setShowCreateForm(false);
   };
 
-  const orgList = React.useMemo(
+  const userList = React.useMemo(
     () => [
       {
-        Name: "Holy cross",
-        RegistrationNumber: "201829",
-        AddressLine1: "52, New colony",
-        AddressLine2: "Near  subbaiah vidyalayam school",
-        City: "Thoothukudi",
-        Pincode: "628002",
-        State: "Tamil Nadu",
-      },
-    ],
+        Product: "Item Name",
+       },
+      ],
     []
   );
 
   return (
     <div>
-      <h1 className="text-center">Manage Producer Organization Details</h1>
+      <h1 className="text-center">
+        Manage Producer Admin Details
+      </h1>
       <div className="container border shadow rounded py-3 mt-5">
         {showCreateForm ? (
-          <CreateProducerOrgForm
-            onCloseCreateProducerOrgForm={onCloseCreateForm}
+          <CreateProductForm
+            onCloseCreateProductForm={onCloseCreateForm}
           />
         ) : (
           <div className="row">
@@ -47,18 +43,18 @@ const ManageProducerOrg = (props) => {
                 className="btn btn-primary"
                 onClick={onCreate}
               >
-                Add New Producer Organization
+                Add New Producer Admin
               </button>
             </div>
           </div>
         )}
       </div>
       <div className="container border shadow rounded py-3 mt-5">
-        <ProducerOrgSearchForm />
-        <ProducerOrgList data={orgList} />
+        <ProductSearchForm />
+        <ProductList data={userList} />
       </div>
     </div>
   );
 };
 
-export default ManageProducerOrg;
+export default ManageProduct;

@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Layout from "../../components/Layout";
 import Login from "../../components/Login";
-import ManageProducerDetails from "./producerorg/manageproducerorg";
-import ManageUserDetails from "./prodorgadmin/manageprodorgadmin";
+import ManageProducer from "./producer/manageproducer";
+import ManageProducerAdmin from "./produceradmin/manageproduceradmin";
+import ManageProduct from "./product/manageproduct";
 
 const ProdOrgAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
-  const [activeItem, setActiveItem] = useState("Producer Organizations");
+  const [activeItem, setActiveItem] = useState("Producers");
 
   const onLogin = (userName, password) => {
     // call server api to authenticate by sending userName, password
@@ -15,22 +16,22 @@ const ProdOrgAdminHome = () => {
     setLoggedIn(true);
   };
 
-  const onClickProducerOrganizations = () => {
-    setActiveItem("Producer Organizations");
+  const onClickProducers = () => {
+    setActiveItem("Producers");
   };
 
-  const onClickProdOrgAdmins = () => {
-    setActiveItem("Producer Organization Admins");
+  const onClickProducerAdmins = () => {
+    setActiveItem("Producer Admins");
   };
 
   const sidebar = [
     {
-      label: "Producer Organizations",
-      handler: onClickProducerOrganizations,
+      label: "Producers",
+      handler: onClickProducers,
     },
     {
-      label: "Producer Organization Admins",
-      handler: onClickProdOrgAdmins,
+      label: "Producer Admins",
+      handler: onClickProducerAdmins,
     },
   ];
 
@@ -38,10 +39,8 @@ const ProdOrgAdminHome = () => {
     <Layout sidebar={loggedIn ? sidebar : null} activeItem={activeItem}>
       {loggedIn ? (
         <>
-          {activeItem === "Producer Organizations" ? (
-            <ManageProducerOrg />
-          ) : null}
-          {activeItem === "Producer Organization Admins" ? <ManageProdOrgAdmin /> : null}
+          {activeItem === "Producers" ? <ManageProducer /> : null}
+          {activeItem === "Producer Admins" ? <ManageProducerAdmin /> : null}
         </>
       ) : (
         <div className="container">
