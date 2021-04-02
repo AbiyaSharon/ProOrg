@@ -16,19 +16,24 @@ const ManageProduct = (props) => {
     setShowCreateForm(false);
   };
 
-  const userList = React.useMemo(
+  const ProductList = React.useMemo(
     () => [
       {
-        Product: "Item Name",
+        Product: "Name",
        },
+       {
+        Product: "Code",
+       },
+       
       ],
     []
+    
   );
 
   return (
     <div>
       <h1 className="text-center">
-        Manage Producer Admin Details
+        Manage Product
       </h1>
       <div className="container border shadow rounded py-3 mt-5">
         {showCreateForm ? (
@@ -43,7 +48,7 @@ const ManageProduct = (props) => {
                 className="btn btn-primary"
                 onClick={onCreate}
               >
-                Add New Producer Admin
+                Add New product
               </button>
             </div>
           </div>

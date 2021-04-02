@@ -33,6 +33,10 @@ const ProdOrgAdminHome = () => {
       label: "Producer Admins",
       handler: onClickProducerAdmins,
     },
+    {
+      label: "Product",
+      handler: onClickProduct,
+    },
   ];
 
   return (
@@ -41,6 +45,7 @@ const ProdOrgAdminHome = () => {
         <>
           {activeItem === "Producers" ? <ManageProducer /> : null}
           {activeItem === "Producer Admins" ? <ManageProducerAdmin /> : null}
+          {activeItem === "Product" ? <ManageProduct /> : null}
         </>
       ) : (
         <div className="container">
@@ -62,3 +67,4 @@ const ProdOrgAdminHome = () => {
   );
 };
 export default ProdOrgAdminHome;
+
