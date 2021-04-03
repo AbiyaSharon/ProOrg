@@ -19,20 +19,27 @@ const ManageProduct = (props) => {
   const ProductList = React.useMemo(
     () => [
       {
-        Product: "Name",
+        Name: "Aloe vera gel",
+        Code: "1123A45Q",
+        UnitOfMeasure: "12gm",
+        CGSTPercentPerUnit: "9",
+        SGSTPercentPerUnit: "9",
        },
        {
-        Product: "Code",
+        Name: "Chocolate",
+        Code: "1121A45W",
+        UnitOfMeasure: "4gm",
+        CGSTPercentPerUnit: "9",
+        SGSTPercentPerUnit: "9",
        },
        {
-        Product: "Unit Of Measure",
+        Name: "Soap",
+        Code: "1223A45E",
+        UnitOfMesure: "10gm",
+        CGSTPercentPerUnit: "9",
+        SGSTPercentPerUnit: "9",
        },
-       {
-        Product: "CGST percent",
-       },
-       {
-        Product: "SGST percent",
-       },
+
        
       ],
     []
