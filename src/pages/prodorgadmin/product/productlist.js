@@ -13,6 +13,18 @@ const ProductList = (props) => {
         Header: "Code",
         accessor: "Code",
       },
+      {
+        Header: "Unit Of Measure",
+        accessor: "UnitOfMeasure",
+      },
+      {
+        Header: "CGST percent",
+        accessor: "CGSTPercentPerUnit",
+      },
+      {
+        Header: "SGST percent",
+        accessor: "SGSTPercentPerUnit",
+      },
      ],
     []
   );

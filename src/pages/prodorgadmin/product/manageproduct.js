@@ -24,6 +24,15 @@ const ManageProduct = (props) => {
        {
         Product: "Code",
        },
+       {
+        Product: "Unit Of Measure",
+       },
+       {
+        Product: "CGST percent",
+       },
+       {
+        Product: "SGST percent",
+       },
        
       ],
     []
@@ -56,7 +65,7 @@ const ManageProduct = (props) => {
       </div>
       <div className="container border shadow rounded py-3 mt-5">
         <ProductSearchForm />
-        <ProductList data={userList} />
+        <ProductList data={Product} />
       </div>
     </div>
   );

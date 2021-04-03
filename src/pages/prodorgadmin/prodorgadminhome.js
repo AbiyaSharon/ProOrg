@@ -9,7 +9,7 @@ import ManageProduct from "./product/manageproduct";
 const ProdOrgAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
   const [activeItem, setActiveItem] = useState("Producers");
-
+ 
   const onLogin = (userName, password) => {
     // call server api to authenticate by sending userName, password
     console.log("onLogin called");
@@ -22,6 +22,10 @@ const ProdOrgAdminHome = () => {
 
   const onClickProducerAdmins = () => {
     setActiveItem("Producer Admins");
+  };
+
+  const onClickProduct = () => {
+    setActiveItem("Product");
   };
 
   const sidebar = [
