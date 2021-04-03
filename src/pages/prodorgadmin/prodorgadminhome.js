@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 import Login from "../../components/Login";
 import ManageProducer from "./producer/manageproducer";
 import ManageProducerAdmin from "./produceradmin/manageproduceradmin";
-import ManageProduct from "./product/manageproduct";
+import ManageProducts from "./product/manageproduct";
 
 const ProdOrgAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -24,8 +24,8 @@ const ProdOrgAdminHome = () => {
     setActiveItem("Producer Admins");
   };
 
-  const onClickProduct = () => {
-    setActiveItem("Product");
+  const onClickProducts = () => {
+    setActiveItem("Products");
   };
 
   const sidebar = [
@@ -38,8 +38,8 @@ const ProdOrgAdminHome = () => {
       handler: onClickProducerAdmins,
     },
     {
-      label: "Product",
-      handler: onClickProduct,
+      label: "Products",
+      handler: onClickProducts,
     },
   ];
 
@@ -49,7 +49,7 @@ const ProdOrgAdminHome = () => {
         <>
           {activeItem === "Producers" ? <ManageProducer /> : null}
           {activeItem === "Producer Admins" ? <ManageProducerAdmin /> : null}
-          {activeItem === "Product" ? <ManageProduct /> : null}
+          {activeItem === "Productsnpm" ? <ManageProducts /> : null}
         </>
       ) : (
         <div className="container">
