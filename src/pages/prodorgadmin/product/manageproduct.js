@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import ProductSearchForm from "./Productsearchform";
+import ProductSearchForm from "./productsearchform";
 import CreateProductForm from "./createProductform";
-import ProductList from "./Productlist";
+import ProductList from "./productlist";
 
 const ManageProduct = (props) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
