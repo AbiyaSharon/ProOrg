@@ -39,7 +39,7 @@ const CreateproductForm = (props) => {
               placeholder="product code"
             />
           </div>
-          <div className="form-group col-sm-10">
+          <div className="form-group col-sm-3">
             <label htmlFor="formproductUnitOfMeasure">Unit Of Measure</label>
             <input
               type="text"
@@ -48,7 +48,7 @@ const CreateproductForm = (props) => {
               placeholder="UnitOfMeasure"
             />
           </div>
-          <div className="form-group col-sm-6">
+          <div className="form-group col-sm-3">
             <label htmlFor="formproductCGSTPercentPerUnit">
               CGST Percent PerUnit
             </label>
@@ -59,7 +59,7 @@ const CreateproductForm = (props) => {
               placeholder="CGSTPercentPerUnit"
             />
           </div>
-          <div className="form-group col-sm-6">
+          <div className="form-group col-sm-3">
             <label htmlFor="formproductSGSTPercentPerUnit">
               SGST Percent PerUnit
             </label>
