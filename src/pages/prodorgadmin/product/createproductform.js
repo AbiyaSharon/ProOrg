@@ -39,7 +39,7 @@ const CreateproductForm = (props) => {
               placeholder="product code"
             />
           </div>
-          <div className="form-group col-sm-6">
+          <div className="form-group col-sm-10">
             <label htmlFor="formproductUnitOfMeasure">Unit Of Measure</label>
             <input
               type="text"
@@ -70,7 +70,7 @@ const CreateproductForm = (props) => {
               placeholder="SGSTPercentPerUnit"
             />
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-4">
             <label htmlFor="formproductSection">Section</label>
             <select id="formSearchProductSearchBy" className="form-control">
               <option>Electronics</option>
@@ -79,7 +79,7 @@ const CreateproductForm = (props) => {
               <option>Beauty products</option>
             </select>
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-4">
             <label htmlFor="formproductCategory">Category</label>
             <select id="formSearchProductSearchBy" className="form-control">
               <option>Electronics</option>
@@ -88,7 +88,7 @@ const CreateproductForm = (props) => {
               <option>Beauty products</option>
             </select>
           </div>
-          <div className="col-sm-6">
+          <div className="col-sm-4">
             <label htmlFor="formproductSubCategory">Sub Category</label>
             <select id="formSearchProductSearchBy" className="form-control">
               <option>Electronics</option>
