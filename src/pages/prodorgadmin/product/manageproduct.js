@@ -8,7 +8,7 @@ const ManageProduct = (props) => {
 
   const onCreate = () => {
     console.log("onCreate called");
-    setShowCreateForm(true);
+    setShowCreateForm(true); 
   };
 
   const onCloseCreateForm = () => {
@@ -16,7 +16,7 @@ const ManageProduct = (props) => {
     setShowCreateForm(false);
   };
 
-  const ProductList = React.useMemo(
+  const productList = React.useMemo(
     () => [
       {
         Name: "Aloe vera gel",
@@ -72,7 +72,7 @@ const ManageProduct = (props) => {
       </div>
       <div className="container border shadow rounded py-3 mt-5">
         <ProductSearchForm />
-        <ProductList data={Product} />
+        <ProductList data={productList} />
       </div>
     </div>
   );

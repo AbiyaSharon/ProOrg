@@ -4,7 +4,7 @@ import Layout from "../../components/Layout";
 import Login from "../../components/Login";
 import ManageProducer from "./producer/manageproducer";
 import ManageProducerAdmin from "./produceradmin/manageproduceradmin";
-import ManageProducts from "./product/manageproduct";
+import ManageProduct from "./product/manageproduct";
 
 const ProdOrgAdminHome = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -49,7 +49,7 @@ const ProdOrgAdminHome = () => {
         <>
           {activeItem === "Producers" ? <ManageProducer /> : null}
           {activeItem === "Producer Admins" ? <ManageProducerAdmin /> : null}
-          {activeItem === "Productsnpm" ? <ManageProducts /> : null}
+          {activeItem === "Products" ? <ManageProduct /> : null}
         </>
       ) : (
         <div className="container">
