@@ -1,8 +1,7 @@
-
-
-const ManageProductCategory = (props) => {
+const ManageProductCategory = () => {
 
 return(
-<p>ProductCategorypage</p>
+    <p>productcategory</p>
 );
 }
+export default ManageProductCategory;
