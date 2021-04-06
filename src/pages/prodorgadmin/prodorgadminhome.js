@@ -59,7 +59,7 @@ const ProdOrgAdminHome = () => {
           {activeItem === "Producers" ? <ManageProducer /> : null}
           {activeItem === "Producer Admins" ? <ManageProducerAdmin /> : null}
           {activeItem === "Products" ? <ManageProduct /> : null}
-          {activeItem === "ProductCategory" ? <ManageProductCategory /> : null}
+          {activeItem === "Product Category" ? <ManageProductCategory /> : null}
 
         </>
       ) : (
