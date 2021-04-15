@@ -18,7 +18,13 @@ const Layout = (props) => {
       </Head>
 
       <Header appTitle={appTitle} />
-      <div className="d-flex">
+      <div
+        className={
+          props.showBackground
+            ? "ContentContainerWithBackground"
+            : "ContentContainer"
+        }
+      >
         {props.sidebar?.length ? (
           <div className="border shadow rounded">
             <div className="list-group list-group-flush">
@@ -26,8 +32,14 @@ const Layout = (props) => {
                 <a
                   key={opt.label}
                   href="#"
-                  className={opt.label === props.activeItem ? "list-group-item list-group-item-action active" : "list-group-item list-group-item-action"}
-                  onClick={() => { opt.handler()}}
+                  className={
+                    opt.label === props.activeItem
+                      ? "list-group-item list-group-item-action active"
+                      : "list-group-item list-group-item-action"
+                  }
+                  onClick={() => {
+                    opt.handler();
+                  }}
                 >
                   {opt.label}
                 </a>
@@ -67,10 +79,18 @@ const Layout = (props) => {
           width: 100%;
         }
 
+        .ContentContainer {
+          height: 100%;
+        }
+        .ContentContainer {
+          height: 100%;
+        }
         .Content {
           flex: 1;
           display: flex;
           flex-direction: column;
+          justify-content: center;
+          align-items: center;
           font-family: Arial;
         }
 

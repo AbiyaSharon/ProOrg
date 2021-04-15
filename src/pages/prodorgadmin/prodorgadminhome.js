@@ -53,7 +53,7 @@ const ProdOrgAdminHome = () => {
   ];
 
   return (
-    <Layout sidebar={loggedIn ? sidebar : null} activeItem={activeItem}>
+    <Layout showBackground="true" sidebar={loggedIn ? sidebar : null} activeItem={activeItem}>
       {loggedIn ? (
         <>
           {activeItem === "Producers" ? <ManageProducer /> : null}

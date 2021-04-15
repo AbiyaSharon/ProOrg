@@ -11,7 +11,7 @@ const CustomerHome = () => {
     setLoggedIn(true);
   };
   return (
-    <Layout>
+    <Layout showBackground="true">
       {loggedIn ? (
         <div className="container"><p>sign in clicked</p></div>
       ) : (

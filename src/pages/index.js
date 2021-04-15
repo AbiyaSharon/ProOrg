@@ -2,6 +2,6 @@
 
 import Layout from "../components/Layout";
 
-const Index = () => <Layout>Welcome to ProOrg!</Layout>;
+const Index = () => <Layout showBackground="true"> Welcome to ProOrg!</Layout>;
 
 export default Index;
